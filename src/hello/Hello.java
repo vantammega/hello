@@ -28,7 +28,7 @@ public class Hello {
             // TODO code application logic
             DatagramSocket server;
             InetAddress ip =  InetAddress.getByName("0.0.0.0");
-            server = new DatagramSocket(2222,ip);
+            server = new DatagramSocket(1234,ip);
           byte[] buf = new byte[1000];
             DatagramPacket dgp = new DatagramPacket(buf, buf.length);
             server.receive(dgp);
