@@ -40,7 +40,7 @@ public class Hello {
         } catch (IOException ex) {
             Logger.getLogger(Hello.class.getName()).log(Level.SEVERE, null, ex);
         }
-);
+
     }
     
 }
