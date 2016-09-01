@@ -23,24 +23,23 @@ public class Hello {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        try {
-            // TODO code application logic
-            DatagramSocket server;
-            InetAddress ip =  InetAddress.getByName("0.0.0.0");
-            server = new DatagramSocket(1237,ip);
-          byte[] buf = new byte[1000];
-            DatagramPacket dgp = new DatagramPacket(buf, buf.length);
-            server.receive(dgp);
-            System.out.println(dgp.getData());
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(Hello.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SocketException ex) {
-            Logger.getLogger(Hello.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Hello.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public static void main(String[] args) throws IOException {
+        String clientSentence;
+         String capitalizedSentence;
+         ServerSocket welcomeSocket = new ServerSocket(6789);
 
+         while(true)
+         {
+            Socket connectionSocket = welcomeSocket.accept();
+            //BufferedReader inFromClient =
+            //   new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+            ///clientSentence = inFromClient.readLine();
+            //System.out.println("Received: " + clientSentence);
+            //capitalizedSentence = clientSentence.toUpperCase() + '\n';
+            outToClient.writeBytes("pong");
+            connectionSocket.close();
+         }
     }
     
 }
