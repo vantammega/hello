@@ -26,7 +26,7 @@ public class Hello {
     public static void main(String[] args) throws IOException {
         String clientSentence;
          String capitalizedSentence;
-         ServerSocket welcomeSocket = new ServerSocket(6789);
+         ServerSocket welcomeSocket = new ServerSocket(6781);
 
          while(true)
          {
