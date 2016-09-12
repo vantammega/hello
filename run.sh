@@ -17,4 +17,4 @@ if [ -f $pid_file ]; then
 	
 fi
 
-java -jar hello.jar & echo $! > $pid_file &
+java -jar dist/hello.jar & echo $! > $pid_file &
