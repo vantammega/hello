@@ -18,3 +18,5 @@ if [ -f $pid_file ]; then
 fi
 
 java -jar dist/hello.jar & echo $! > $pid_file &
+echo "exit"
+exit
