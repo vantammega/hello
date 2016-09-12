@@ -43,6 +43,7 @@ public class Hello {
             //System.out.println("Received: " + clientSentence);
             //capitalizedSentence = clientSentence.toUpperCase() + '\n';
             outToClient.writeBytes("pong");
+            outToClient.close();
             connectionSocket.close();
          }
     }
