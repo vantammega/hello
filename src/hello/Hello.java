@@ -45,7 +45,7 @@ public class Hello {
             //capitalizedSentence = clientSentence.toUpperCase() + '\n';
             //capitalizedSentence = clientSentence.toUpperCase() + '\n';
             //capitalizedSentence = clientSentence.toUpperCase() + '\n';
-            outToClient.writeBytes("pong pong pong ");
+            outToClient.writeBytes("hello hello");
             outToClient.close();
             connectionSocket.close();
          }
