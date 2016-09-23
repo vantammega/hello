@@ -28,7 +28,7 @@ public class Hello {
     /**
      * @param args the command line arguments
      */
-    // static void main(String[] args) throws IOException {
+    static void main(String[] args) throws IOException {
         String clientSentence;
          String capitalizedSentence;
          ServerSocket welcomeSocket = new ServerSocket(6789);
