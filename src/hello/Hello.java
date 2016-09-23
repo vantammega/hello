@@ -37,7 +37,7 @@ public class Hello {
          {
             Socket connectionSocket = welcomeSocket.accept();
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-            outToClient.writeBytes("Hello nobi 123456\n");
+            outToClient.writeBytes("Hello nobi 1234567n");
             outToClient.close();
             connectionSocket.close();
          }
