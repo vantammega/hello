@@ -28,7 +28,7 @@ public class Hello {
     /**
      * @param args the command line arguments
      */
-    static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         String clientSentence;
          String capitalizedSentence;
          ServerSocket welcomeSocket = new ServerSocket(6789);
@@ -36,7 +36,12 @@ public class Hello {
          while(true)
          {
             Socket connectionSocket = welcomeSocket.accept();
+            //BufferedReader inFromClient =
+            //   new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+            ///clientSentence = inFromClient.readLine();
+            //System.out.println("Received: " + clientSentence);
+            //capitalizedSentence = clientSentence.toUpperCase() + '\n';
             outToClient.writeBytes("Hello nobi \n");
             outToClient.close();
             connectionSocket.close();
