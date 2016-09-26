@@ -61,7 +61,7 @@ public class Hello {
       static class MyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
-            String response = "Hello 1\r\n";
+            String response = "Hello 12\r\n";
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
