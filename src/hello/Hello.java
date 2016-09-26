@@ -34,7 +34,7 @@ public class Hello {
      */
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(6789), 0);
-        server.createContext("/", new MyHandler());
+        server.createContext("/hello", new MyHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
         
