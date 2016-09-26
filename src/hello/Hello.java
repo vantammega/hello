@@ -19,6 +19,10 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.sun.net.httpserver.*;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+
 /**
  *
  * @author Tam
@@ -29,12 +33,17 @@ public class Hello {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(6789), 0);
+        server.createContext("/", new MyHandler());
+        server.setExecutor(null); // creates a default executor
+        server.start();
+        
+        /*
         String clientSentence;
-         String capitalizedSentence;
-         ServerSocket welcomeSocket = new ServerSocket(6789);
+        String capitalizedSentence;
+        ServerSocket welcomeSocket = new ServerSocket(6789);
 
-         while(true)
-         {
+        while (true) {
             Socket connectionSocket = welcomeSocket.accept();
             //BufferedReader inFromClient =
             //   new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
@@ -42,10 +51,22 @@ public class Hello {
             ///clientSentence = inFromClient.readLine();
             //System.out.println("Received: " + clientSentence);
             //capitalizedSentence = clientSentence.toUpperCase() + '\n';
-            outToClient.writeBytes("Hello nobi \n");
+            outToClient.writeBytes("pong pong");
             outToClient.close();
             connectionSocket.close();
-         }
+        }
+        */
     }
     
+      static class MyHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange t) throws IOException {
+            String response = "Hello\r\n";
+            t.sendResponseHeaders(200, response.length());
+            OutputStream os = t.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
+    }
+
 }
